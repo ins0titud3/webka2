@@ -81,9 +81,13 @@ span a{
 .section-link-content{
     background-color: #002446;
 }
+.projects a{
+    max-width: 300px;
+}
 
 
-@media (max-width: 800px){
+
+@media (max-width: 820px){
     nav{
         display: flex;
         flex-direction: column;
