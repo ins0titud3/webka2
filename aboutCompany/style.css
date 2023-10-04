@@ -95,6 +95,9 @@ span a{
 .footer-nav-content div {
     max-width: 25%;
 }
+.main-title{
+    width:50%;
+}
 
 
 @media (max-width: 820px){
@@ -133,5 +136,7 @@ span a{
     .links{
         display: none;
     }
-
+    .main-title{
+        width:100%;
+    }
 }
