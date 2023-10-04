@@ -78,6 +78,11 @@ span a{
     left: 5px;
 }
 
+.section-link-content{
+    background-color: #002446;
+}
+
+
 @media (max-width: 800px){
     nav{
         display: flex;
@@ -85,6 +90,13 @@ span a{
         justify-content: center;
         align-items: center;
     }
+    .section-link img{
+        display: none;
+    }
+    .section-link-content{
+        padding: 20px 0;
+    }
+
 }
 @media (max-width: 580px) {
     .burger{
