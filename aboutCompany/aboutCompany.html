@@ -48,7 +48,7 @@
         </div>
     </div>
 </header>
-<main class="d-flex row">
+<main class="d-flex row position-relative">
     <div class="main-title container mt-5">
         <p class="container">
             <span class="text-warning"> HM Group </span> - это надежный партнер, специализирующийся на строительстве и ремонте в Батуми и окрестностях. Наша команда опытных профессионалов готова предложить вам широкий спектр услуг высочайшего качества.
@@ -78,9 +78,9 @@
         <form action="#" class="d-flex flex-column justify-content-start align-items-baseline p-4g">
             <h5 class="text-warning fs-6 mt-3">Бесплатная консультация</h5>
             <h2 class="text-primary-emphasis fs-1">Свяжитесь с нами</h2>
-            <input type="text" placeholder="Телефон" class="border border-1 bg-body-tertiary py-2 px-4 rounded mt-3">
-            <input type="text" placeholder="Комментарий" class="border border-1 bg-body-tertiary py-2 px-4 rounded mt-2">
-            <button class="align-self-start bg-warning border-0 text-white rounded py-2 px-4 mt-4" >Перезвоните мне</button>
+            <input type="text" id="phone" placeholder="Телефон" class="border border-1 bg-body-tertiary py-2 px-4 rounded mt-3">
+            <input type="text" id="comment" placeholder="Комментарий" class="border border-1 bg-body-tertiary py-2 px-4 rounded mt-2">
+            <button id="submit" class="align-self-start bg-warning border-0 text-white rounded py-2 px-4 mt-4" >Перезвоните мне</button>
         </form>
         <img src="./image/contactus.png" class="img-fluid" alt="">
     </div>
@@ -124,6 +124,6 @@
         </div>
     </div>
 </footer>
-
+    <script src="../js/formValidation.js"></script>
 </body>
 </html>
