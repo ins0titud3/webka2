@@ -3,7 +3,7 @@ function showFinished(){
     var buttons = document.getElementById("sort").childNodes
     for(let i = 0; i < buttons.length; i++){
         if(buttons[i].id !== "finished"){
-            buttons[i].style = "background-color: white; color: #052c65;"
+            buttons[i].style = "color: #052c65;"
         }
         else{
             buttons[i].style = "background-color: #ffac38;  color: white;"
@@ -31,7 +31,7 @@ function showInProcess(){
     var buttons = document.getElementById("sort").childNodes
     for(let i = 0; i < buttons.length; i++){
         if(buttons[i].id !== "inProcess"){
-            buttons[i].style = "background-color: white; color: #052c65;"
+            buttons[i].style = "color: #052c65;"
         }
         else{
             buttons[i].style = "background-color: #ffac38;  color: white;"
@@ -51,7 +51,7 @@ function showDesignProcess(){
     var buttons = document.getElementById("sort").childNodes
     for(let i = 0; i < buttons.length; i++){
         if(buttons[i].id !== "designProcess"){
-            buttons[i].style = "background-color: white; color: #052c65;"
+            buttons[i].style = "color: #052c65;"
         }
         else{
             buttons[i].style = "background-color: #ffac38;  color: white;"
@@ -66,7 +66,7 @@ function showAll(){
     var buttons = document.getElementById("sort").childNodes
     for(let i = 0; i < buttons.length; i++){
         if(buttons[i].id !== "all"){
-            buttons[i].style = "background-color: white; color: #052c65;"
+            buttons[i].style = "color: #052c65;"
         }
         else{
             buttons[i].style = "background-color: #ffac38;  color: white;"
