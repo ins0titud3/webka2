@@ -51,11 +51,11 @@
     <main class="d-flex row justify-content-around align-items-center">
         <section class="d-flex row justify-content-center align-items-center">
             <div class="filter container d-flex column justify-content-around align-items-around mt-5">
-                <div class="container">
-                    <button class="bg-warning text-white rounded border-0 px-3 py-1 fw-semibold" onclick="showAll()">Все</button>
-                    <button class="fw-semibold bg-white border-1 text-primary-emphasis px-2 py-1 my-1 rounded" onclick="showFinished()">Законченные</button>
-                    <button class="fw-semibold bg-white border-1 text-primary-emphasis px-2 py-1 my-1 rounded" onclick="showInProcess()">Строятся</button>
-                    <button class="fw-semibold bg-white border-1 text-primary-emphasis px-2 py-1 my-1 rounded" onclick="showDesignProcess()">В проектировании</button>
+                <div class="container" id="sort">
+                    <button class=" rounded  px-3 py-1 fw-semibold" style="background-color: #ffac38;  color: white;" onclick="showAll()" id="all">Все</button>
+                    <button class="fw-semibold  px-2 py-1 my-1 rounded" onclick="showFinished()" id="finished">Законченные</button>
+                    <button class="fw-semibold  px-2 py-1 my-1 rounded" onclick="showInProcess()" id="inProcess">Строятся</button>
+                    <button class="fw-semibold  px-2 py-1 my-1 rounded" onclick="showDesignProcess()" id="designProcess">В проектировании</button>
                 </div>
             </div>
 
