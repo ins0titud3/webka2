@@ -16,6 +16,6 @@ function validatorForm(event){
     if(regex.test(phoneValue)){
         alert('Номер должен состоят из чисел')
     }
-    
+    alert('Мы успешно отправили вам смс!')
     event.preventDefault();
 }
