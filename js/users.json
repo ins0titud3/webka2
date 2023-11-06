@@ -1,9 +1,21 @@
 {
-    "users1":{
+    "users":[
+        {
         "userName":"Esimgali",
         "surName": "Khamitov",
         "login": "Esimgali",
         "password":"123456",
-        "email":"esimgali@gmail.com"
+        "email":"esimgali@gmail.com",
+        "isAdmin":true,
+        "isLike": false
     }
+    ],
+    "posts":[
+        {
+            "img":"./img/projects-pngs.png",
+            "title":"qwerty",
+            "discription":"123456789",
+            "data":"06.11.2023"
+        }
+    ]
 }
