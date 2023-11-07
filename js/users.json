@@ -7,7 +7,8 @@
         "password":"123456",
         "email":"esimgali@gmail.com",
         "isAdmin":true,
-        "isLike": false
+        "isLike": false,
+        "isLogin":false
     }
     ],
     "posts":[
