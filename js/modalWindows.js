@@ -1,20 +1,15 @@
-
-
-
-const parent = document.querySelector(".projects");
+const parent = document.querySelector("#projects");
 
 setTimeout(async() => {
     const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/posts.json")
     const data = response.data
     console.log(data);
     Object.keys(data).map((key) => {
-        console.log(key);
-        console.log(data[3]);
         const child =  document.createElement("a");
         child.className = "cards flex-shrink-1 text-decoration-none"
-        console.log(child.className);
+
         child.id = "finishedProj"
-        console.log(data[key].img);
+
         child.setAttribute('dataImage', data[key].img)
         child.setAttribute('discription', data[key].discription)
         child.setAttribute('dataText',data[key].title)

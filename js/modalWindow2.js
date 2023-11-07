@@ -1,11 +1,39 @@
+const parent = document.querySelector(".projects");
+
+setTimeout(async() => {
+    const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/posts.json")
+    const data = response.data
+    console.log(data);
+    Object.keys(data).map((key) => {
+        const child =  document.createElement("a");
+        child.className = "cards flex-shrink-1 text-decoration-none"
+
+        child.id = "finishedProj"
+
+        child.setAttribute('dataImage', data[key].img)
+        child.setAttribute('discription', data[key].discription)
+        child.setAttribute('dataText',data[key].title)
+        const childImg = document.createElement("img");
+        childImg.src = data[key].img
+        childImg.className = "img-fluid"
+
+        const childH = document.createElement("h5");
+        childH.innerHTML = data[key].title
+        childH.className = "mt-3 text-primary-emphasis"
+
+        child.appendChild(childImg)
+        child.appendChild(childH)
+        parent.appendChild(child)
+    })
+
 const openModalWindow = document.querySelectorAll('.cards');
 
-openModalWindow.forEach((card) => {
+    openModalWindow.forEach((card) => {
     card.addEventListener('click', () => {
-        const imageSrc = card.getAttribute('data-image');
-        const textContent = card.getAttribute('data-text');
-        const textSpace = card.getAttribute('text')
-
+        const imageSrc = card.getAttribute('dataImage');
+        const textContent = card.getAttribute('dataText');
+        const textSpace = card.getAttribute('discription')
+        console.log(textSpace);
         createModal(imageSrc, textContent, textSpace);
     });
 });
@@ -61,3 +89,5 @@ function createModal(imageSrc, textContent, textSpace){
 
     document.body.appendChild(wrapper);
 }
+}
+)
