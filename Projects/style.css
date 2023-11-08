@@ -147,7 +147,7 @@ span a{
     z-index: 9999;
 }
 
-.modal {
+.modall {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,6 +158,19 @@ span a{
     overflow: auto;
     z-index: 9999;
     border-radius: 18px;
+}
+
+.modal-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: auto;
+    position: relative;
+    background-color: white;
+    overflow: auto;
+    z-index: 9999;
+    border-radius: 9px;
 }
 
 .modalWrapper {
