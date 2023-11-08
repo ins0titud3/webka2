@@ -48,18 +48,19 @@ const addUser = document.querySelector('#addUser');
 addUser.addEventListener('click', createUser);
 // data.forEach(element => {
 //     console.log(element);
-// });c 
-let data = {}
-setTimeout(async() =>{
-  const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
-  data = response.data;
-  console.log(data);
-  const usersContainer = document.querySelector('#users');
-  console.log(usersContainer);
-  document.addEventListener('DOMContentLoaded',
-  usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
+// });
+
+const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
+const data = response.data;
+console.log(data);
+
+const usersContainer = document.querySelector('#users');
+console.log(usersContainer);
+document.addEventListener('DOMContentLoaded', 
+usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
+    console.log(value); // Убедитесь, что данные выводятся корректно в консоль
     return `
-    <tr>
+    <tr onclick="handleRow">
         <td>${value.userName}</td>
         <td>${value.surName}</td>
         <td>${value.login}</td>
@@ -71,3 +72,8 @@ setTimeout(async() =>{
 
 }, 0)
 
+const deleteBtn = document.querySelector('#delete');
+
+deleteBtn.onclick(()=>{
+    console.log('hello');
+})
