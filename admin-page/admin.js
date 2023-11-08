@@ -48,17 +48,16 @@ const addUser = document.querySelector('#addUser');
 addUser.addEventListener('click', createUser);
 // data.forEach(element => {
 //     console.log(element);
-// });
-
-const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
-const data = response.data;
-console.log(data);
-
-const usersContainer = document.querySelector('#users');
-console.log(usersContainer);
-document.addEventListener('DOMContentLoaded', 
-usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
-    console.log(value); // Убедитесь, что данные выводятся корректно в консоль
+// });c 
+let data = {}
+setTimeout(async() =>{
+  const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
+  data = response.data;
+  console.log(data);
+  const usersContainer = document.querySelector('#users');
+  console.log(usersContainer);
+  document.addEventListener('DOMContentLoaded',
+  usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
     return `
     <tr>
         <td>${value.userName}</td>
@@ -70,9 +69,5 @@ usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
     </tr>`;
 }).join(''));
 
+}, 0)
 
-const deleteBtn = document.querySelector('#delete');
-
-deleteBtn.onclick(()=>{
-    console.log('hello');
-})
