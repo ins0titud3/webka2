@@ -25,14 +25,14 @@
   }) -->
   <header class="d-flex row justify-content-center align-items-center fw-semibold p-0 m-0">
     <nav class="d-flex column justify-content-center gap-5 m-0 p-0 py-4">
-        <a href="#"><img src="./Projects/icons/logo.svg" alt=""></a>
+        <a href="#"><img src="../Projects/icons/logo.svg" alt=""></a>
         <div class="links column justify-content-center align-items-center pt-3">
             <ul class="list-unstyled d-flex column gap-4 fs-5">
                 <li><a href="../Home/Home.html" class="text-decoration-none">Главная</a></li>
-                <li><a href="./Projects/projects.html" class="text-decoration-none">Проекты</a></li>
-                <li><a href="./products/productsW.html" class="text-decoration-none">Продукты</a></li>
-                <li><a href="./aboutCompany/aboutCompany.html" class="text-decoration-none">Окомпании</a></li>
-                <li><a href="./contacts/contacts.html" class="text-decoration-none">Контакты</a></li>
+                <li><a href="../Projects/projects.html" class="text-decoration-none">Проекты</a></li>
+                <li><a href="../products/productsW.html" class="text-decoration-none">Продукты</a></li>
+                <li><a href="../aboutCompany/aboutCompany.html" class="text-decoration-none">Окомпании</a></li>
+                <li><a href="../contacts/contacts.html" class="text-decoration-none">Контакты</a></li>
             </ul>
         </div>
 
@@ -54,12 +54,23 @@
     </nav>
     </header>
 
-    <main>
+    <main class="p-0 m-0">
         <button id="createBtn" class="btn btn-warning m-5">Create user</button>
+        <button id="createPost" class="btn btn-warning m-5">Create Post</button>
+
+        <div id="modalPost" >
+            <div id="modalPost-content">
+              <span id="modalPost-close">&times;</span>
+                <h2>Create post</h2>
+                <form style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap:10px">
+                    <input type="text" id="title" placeholder="Title">
+                    <input type="text" id="description" placeholder="Description">
+                    <button id="createPostApi">Create</button>
+                </form>
+            </div>
+        </div>
 
         <div id="myModal" class="modal">
-
-            <!-- Modal content -->
             <div class="modal-content">
               <span class="close">&times;</span>
                 <h2>Create user</h2>
@@ -75,20 +86,37 @@
                     <button id="addUser">Create</button>
                 </form>
             </div>
-          
-          </div>
+        </div>
 
-          <table class="users" id="users">
-            <tr>
-                <th>Username</th>
-                <th>Surname</th>
-                <th>Login</th>
-                <th>Email</th>
-                <th></th>
-                <th></th>
-            </tr>
-            
-          </table>
+        <table class="users" id="users">
+        <tr>
+            <th>Username</th>
+            <th>Surname</th>
+            <th>Login</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+        </tr>
+        
+        </table>
+
+
+        <div id="editForm">
+            <div class="editForm-content">
+                <span id="closeBtn">&times;</span>
+                <h3>Edit user</h3>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <input type="text" id="editUserName">
+                    <input type="text" id="editSurName">
+                    <input type="text" id="editLogin">
+                    <input type="email" id="editEmail">
+                    <label>Password</label>
+                    <input type="text" id="editPassword">
+
+                    <button id="editBtn">Edit user</button>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

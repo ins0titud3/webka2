@@ -1,4 +1,4 @@
-.modal {
+.modal, #editForm, #modalPost {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -12,7 +12,7 @@
   }
   
   /* Modal Content/Box */
-  .modal-content {
+  .modal-content, .editForm-content, #modalPost-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
@@ -21,7 +21,7 @@
   }
   
   /* The Close Button */
-  .close {
+  .close, #closeBtn, #modalPost-close {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -29,7 +29,11 @@
   }
   
   .close:hover,
-  .close:focus {
+  .close:focus,
+  #closeBtn:focus,
+  #closeBtn:hover,
+  #modalPost-close:focus,
+  #modalPost-close:hover{
     color: black;
     text-decoration: none;
     cursor: pointer;
@@ -39,3 +43,8 @@
   th,td{
     padding: 5px 30px;
   }
+
+body{
+    max-width: 1000px;
+    margin: 0 auto;
+}

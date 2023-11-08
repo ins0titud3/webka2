@@ -1,7 +1,5 @@
 var modal = document.getElementById("myModal");
-
 var btn = document.getElementById("createBtn");
-
 var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
@@ -46,30 +44,127 @@ async function createUser(e){
 
 const addUser = document.querySelector('#addUser');
 addUser.addEventListener('click', createUser);
-// data.forEach(element => {
-//     console.log(element);
-// });
 
 const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
 const data = response.data;
 console.log(data);
 
+
+setTimeout(() => {
+    console.log('some');
+    const deleteBtn = document.querySelectorAll('#delete')
+    console.log(deleteBtn);
+}, 1500);
+
+
 const usersContainer = document.querySelector('#users');
 console.log(usersContainer);
-document.addEventListener('DOMContentLoaded', 
+
 usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
     return `
-    <tr onclick="handleRow">
+    <tr>
         <td>${value.userName}</td>
         <td>${value.surName}</td>
         <td>${value.login}</td>
         <td>${value.email}</td>
-        <th><button>Edit</button></th>
-        <th><button id="delete">Delete</button></th>
+        <th><button class="edit" data-target="${key}">Edit</button></th>
+        <th><button class="delete" data-target="${key}">Delete</button></th>
     </tr>`;
-}).join(''));
+}).join('');
 
 
-function handleRow(){
-    console.log('hello');
+usersContainer.addEventListener('click', async (event) => {
+    
+    
+    if (event.target.classList.contains('delete')) {
+        const userId = event.target.getAttribute('data-target');
+        await axios.delete(`https://webprojass4-default-rtdb.firebaseio.com/users/${userId}.json`)
+        location.reload()
+    } else if (event.target.classList.contains('edit')) {
+        const userId = event.target.getAttribute('data-target');
+
+        const user = await axios.get(`https://webprojass4-default-rtdb.firebaseio.com/users/${userId}.json`)
+        const userData = user.data;
+        console.log(userData);
+        displayEditForm(userData);
+
+        const editBtn = document.querySelector('#editBtn');
+        editBtn.addEventListener('click', async ()=>{
+            await axios.put(
+                `https://webprojass4-default-rtdb.firebaseio.com/users/${userId}.json`,  
+                {
+                    "userName":document.getElementById('editUserName').value,
+                    "surName": document.getElementById('editSurName').value,
+                    "login": document.getElementById('editLogin').value,
+                    "password":document.getElementById('editPassword').value,
+                    "email":document.getElementById('editEmail'),
+                    "isAdmin":false,
+                    "isLike": false,
+                    "isLogin":false
+                }
+            )
+            location.reload()
+        })
+    }
+});
+
+
+function displayEditForm(userData) {
+    document.getElementById('editForm').style.display = 'block';
+
+    var editFormModal = document.getElementById("editForm");
+    var close = document.querySelector("#closeBtn");
+
+
+    close.onclick = function() {
+        editFormModal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+        console.log(event.target);
+        if (event.target == editFormModal) {
+            editFormModal.style.display = "none";
+        }
+    }
+
+
+
+    document.getElementById('editUserName').value = userData.userName;
+    document.getElementById('editSurName').value = userData.surName;
+    document.getElementById('editLogin').value = userData.login;
+    document.getElementById('editEmail').value = userData.email;
+    document.getElementById('editPassword').value = userData.password;
+
+    
+}
+
+
+var modalPost = document.getElementById("modalPost");
+var modalPostCloseBtn = document.getElementById("modalPost-close");
+const createPost = document.querySelector('#createPost')
+
+createPost.onclick = function() {
+    modalPost.style.display = "block";
+}
+modalPostCloseBtn.onclick = function() {
+    modalPost.style.display = "none";
+}   
+  
+  window.onclick = function(event) {
+    if (event.target == modalPost) {
+        modalPost.style.display = "none";
+    }
+  }
+
+const createPostApi = document.querySelector('#createPostApi');
+createPostApi.addEventListener('click', createPostFunc)
+
+async function createPostFunc(){
+    const title = document.querySelector('#title').value
+    const desc = document.querySelector('#description').value
+    await axios.post("https://webprojass4-default-rtdb.firebaseio.com/posts.json", {
+        data: new Date,
+        discription: desc,
+        title: title
+    })
 }
