@@ -58,9 +58,8 @@ const usersContainer = document.querySelector('#users');
 console.log(usersContainer);
 document.addEventListener('DOMContentLoaded', 
 usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
-    console.log(value); // Убедитесь, что данные выводятся корректно в консоль
     return `
-    <tr>
+    <tr onclick="handleRow">
         <td>${value.userName}</td>
         <td>${value.surName}</td>
         <td>${value.login}</td>
@@ -71,8 +70,6 @@ usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
 }).join(''));
 
 
-const deleteBtn = document.querySelector('#delete');
-
-deleteBtn.onclick(()=>{
+function handleRow(){
     console.log('hello');
-})
+}
