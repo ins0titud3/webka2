@@ -147,7 +147,7 @@ span a{
     z-index: 9999;
 }
 
-.modal {
+.modall {
     display: flex;
     justify-content: center;
     align-items: center;

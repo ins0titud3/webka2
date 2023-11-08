@@ -45,32 +45,41 @@ async function createUser(e){
 const addUser = document.querySelector('#addUser');
 addUser.addEventListener('click', createUser);
 
-const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
-const data = response.data;
-console.log(data);
+let data = {};
+
+window.addEventListener('DOMContentLoaded', async ()=>{
+    const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
+    data = response.data;
+    console.log(data);
+})
+
+
+const usersContainer = document.querySelector('#users');
 
 
 setTimeout(() => {
     console.log('some');
     const deleteBtn = document.querySelectorAll('#delete')
     console.log(deleteBtn);
+
+    console.log(usersContainer);
+
+    usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
+
+        return `
+        <tr>
+            <td>${value.userName}</td>
+            <td>${value.surName}</td>
+            <td>${value.login}</td>
+            <td>${value.email}</td>
+            <th><button class="edit" data-target="${key}">Edit</button></th>
+            <th><button class="delete" data-target="${key}">Delete</button></th>
+        </tr>`;
+    }).join('');
 }, 1500);
 
 
-const usersContainer = document.querySelector('#users');
-console.log(usersContainer);
 
-usersContainer.innerHTML += Object.entries(data).map(([key, value]) => {
-    return `
-    <tr>
-        <td>${value.userName}</td>
-        <td>${value.surName}</td>
-        <td>${value.login}</td>
-        <td>${value.email}</td>
-        <th><button class="edit" data-target="${key}">Edit</button></th>
-        <th><button class="delete" data-target="${key}">Delete</button></th>
-    </tr>`;
-}).join('');
 
 
 usersContainer.addEventListener('click', async (event) => {
@@ -97,7 +106,7 @@ usersContainer.addEventListener('click', async (event) => {
                     "surName": document.getElementById('editSurName').value,
                     "login": document.getElementById('editLogin').value,
                     "password":document.getElementById('editPassword').value,
-                    "email":document.getElementById('editEmail'),
+                    "email":document.getElementById('editEmail').value,
                     "isAdmin":false,
                     "isLike": false,
                     "isLogin":false

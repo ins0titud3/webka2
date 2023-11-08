@@ -50,7 +50,7 @@ function createModal(imageSrc, textContent, textSpace){
     })
 
     const modalContainer = document.createElement('div');
-    modalContainer.className = 'modal';
+    modalContainer.className = 'modall';
     wrapper.appendChild(modalContainer);
 
     const modalMain =document.createElement('div');

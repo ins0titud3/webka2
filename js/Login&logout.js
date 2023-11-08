@@ -1,4 +1,3 @@
-
 async function createUser(){
   e.preventDefault();
   if(validation()){
@@ -9,7 +8,7 @@ async function logout(){
   const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
   Object.keys(response.data).map((key) => {
     if(response.data.key.isLogin == true){
-      setState(key, "isLogin", false)
+      setState(key, "isLogin", false)``
     }
   })
 }
