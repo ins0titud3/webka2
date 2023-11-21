@@ -11,6 +11,15 @@ async function createUser(e){
         if(password.value.length <= 5){
             alert('Password length should be more than 5')
         }
+        else if(name.value.length <= 3){
+            alert('Name length should be more than 5')
+        }
+        else if(surname.value.length <= 3){
+            alert('Surname length should be more than 5')
+        }
+        else if(username.value.length <= 3){
+            alert('Username length should be more than 5')
+        }
         else{
             await axios.post(
                 "https://webprojass4-default-rtdb.firebaseio.com/users.json",
@@ -30,4 +39,3 @@ async function createUser(e){
 
 const addUser = document.querySelector('#createBtn');
 addUser.addEventListener('click', createUser);
-console.log(window.location);
