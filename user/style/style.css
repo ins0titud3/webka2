@@ -1146,3 +1146,8 @@ h6{
 #admin{
     display: none;
 }
+
+.container{
+    border: 1px solid #ccc;
+    border-radius: 13px;
+}

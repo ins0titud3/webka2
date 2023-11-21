@@ -171,9 +171,11 @@ createPostApi.addEventListener('click', createPostFunc)
 async function createPostFunc(){
     const title = document.querySelector('#title').value
     const desc = document.querySelector('#description').value
+    const state = document.getElementById("status").value;
     await axios.post("https://webprojass4-default-rtdb.firebaseio.com/posts.json", {
         data: new Date,
         discription: desc,
-        title: title
+        title: title,
+        state: state
     })
 }
