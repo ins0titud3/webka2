@@ -26,7 +26,6 @@
             <a href="tel:+995-32-777-7777" class="text-decoration-none">+995-32-777-7777</a>
 
             <button type="button" class="btn btn-warning mx-3" id="loginButton"  data-bs-toggle="modal" data-bs-target="#loginModal">Log In</button>
-            <button type="button" class="btn btn-warning mx-2" id="signupButton" data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</button>
             <label class="burger" for="burger">
                 <input type="checkbox" id="burger">
                 <span></span>
@@ -53,16 +52,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post">
                     <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <label for="usernameLogin">Username:</label>
+                        <input type="text" class="form-control" id="usernameLogin" name="username" required>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <label for="passwordLogin">Password:</label>
+                        <input type="password" class="form-control" id="passwordLogin" name="password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-2" onclick="login(event)">Submit</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -79,7 +78,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -100,7 +99,7 @@
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" id="password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-2" id="createBtn">Submit</button>
                 </form>
             </div>
             <div class="modal-footer">
@@ -146,26 +145,11 @@
                     В этом направлении, несмотря на то, что наша компания может полностью реагировать на оптовые потребности в алюминии, она также имеет возможность предоставлять полный спектр услуг по решениям проектов, поскольку у нее есть столярные изделия, необходимые для применения.
                 </p>
 
-                <div>
-                    <div>
-                        <span>Понравилось: <span id="likesFirstPost"></span></span>
-                        <span>Не понравилось: <span id="dislikesFirstPost"></span></span>
-                    </div>
-                    <button id="likeBtnFirstPost" class="align-self-start bg-warning border-0 text-white rounded py-2 px-4 mt-4">Нравиться</button>
-                    <button id="dislikeBtnFirstPost" class="align-self-start bg-warning border-0 text-white rounded py-2 px-4 mt-4">Не нравиться</button>
-                </div>
+                
                 <p class="col-md-6 px-5 mt-5"> <span class="display-5">Стеклянная Пластина<br><br></span>Основанная в 1957 году для обработки стекла, наша компания занимается продажей стекла оптом с 1968 года. Благодаря большому объему стекла как в обработке стекла, так и в оптовой торговле, она также предлагает большие преимущества в сфере оптовой продать стекла. Помимо стекольного завода, он также обеспечивает дистрибуцию стекла на своем собственном предприятии с мощной логистической сетью со складской площадью 2000 м2, где все типы стекла на рынке расположены исключительно для оптового обслуживания стекла.
                     Это одна из главных причин присутствия нашей компании в этой области, что все виды очков в необходимом количестве и размерах доставляются в обещанные сроки.</p>
 
                 <img class="col-md-6" src="../images/image 11.png" alt="">
-                <div>
-                    <div>
-                        <span>Понравилось: <span id="likesSecondPost"></span></span>
-                        <span>Не понравилось: <span id="dislikesSecondPost"></span></span>
-                    </div>
-                    <button id="likeBtnSecondPost" class="align-self-start bg-warning border-0 text-white rounded py-2 px-4 mt-4">Нравиться</button>
-                    <button id="dislikeBtnSecondPost" class="align-self-start bg-warning border-0 text-white rounded py-2 px-4 mt-4">Не нравиться</button>
-                </div>
             </div>
         </div>
     </section>
