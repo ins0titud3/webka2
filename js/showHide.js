@@ -1,3 +1,5 @@
+let arr = null
+
 function showFinished(){
     var finished = document.getElementById("projects").childNodes
     var buttons = document.getElementById("sort").childNodes
@@ -10,7 +12,7 @@ function showFinished(){
         }
     }
     for(let i = 0; i < finished.length; i++){
-        if(finished[i].id !== "finishedProj"){
+        if(finished[i].id !== "finished"){
             finished[i].style = "display: none"
         }
         else{

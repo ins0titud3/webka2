@@ -8,8 +8,8 @@ setTimeout(async() => {
         const child =  document.createElement("a");
         child.className = "cards flex-shrink-1 text-decoration-none"
 
-        child.id = "finishedProj"
-
+        child.id = data[key].state
+        child.setAttribute('data', data[key].data)
         child.setAttribute('dataImage', data[key].img)
         child.setAttribute('discription', data[key].discription)
         child.setAttribute('dataText',data[key].title)
