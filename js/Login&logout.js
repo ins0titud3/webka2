@@ -1,3 +1,13 @@
+// const logout = document.querySelector("#logout")
+// setTimeout(async() => {
+//   const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
+//   Object.keys(response.data).map((key) => {
+//     if(response.data[key].isLogin == true){
+//       logout.style.display = "none"
+//     }
+//   })
+// }, 0)
+
 async function createUser(){
   e.preventDefault();
   if(validation()){
@@ -5,25 +15,52 @@ async function createUser(){
   }
 }
 async function logout(){
+    const signupModal = document.querySelector("#signupModal")
+  const loginModal = document.querySelector("#loginModal")
+  const signupButton = document.querySelector("#signupButton")
+  const loginButton = document.querySelector("#loginButton")
+  const back = document.querySelector(".modal-backdrop")
+  const logout = document.querySelector("#logout")
   const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
   Object.keys(response.data).map((key) => {
-    if(response.data.key.isLogin == true){
-      setState(key, "isLogin", false)``
+    if(response.data[key].isLogin == true){
+      loginButton.style.display = "flex"
+      signupButton.style.display = "flex"
+      logout.style.display = "none"
+      setState(key, "isLogin", false)
+      return
     }
   })
 }
-async function login(){
-  const Login = document.querySelector().textContent
-  const Password = document.querySelector().textContent
-  const suc = false;
-  const isAdmin = false
+async function login(event){
+  event.preventDefault()
+  const Login = document.querySelector("#username").value
+  const Password = document.querySelector("#password").value
+  const signupModal = document.querySelector("#signupModal")
+  const loginModal = document.querySelector("#loginModal")
+  const signupButton = document.querySelector("#signupButton")
+  const loginButton = document.querySelector("#loginButton")
+  const back = document.querySelector(".modal-backdrop")
+  const logout = document.querySelector("#logout")
+  // const Login = event.target
+  // const Password = event.target
+  console.log(Login, Password);
+  let suc = false;
+  let isAdmin = false
   const response = await axios.get("https://webprojass4-default-rtdb.firebaseio.com/users.json")
   Object.keys(response.data).map((key) => {
-    if(response.data.key.login == Login){
-      if(response.data.key.password == Password){
+    console.log(response.data[key].login);
+    if(response.data[key].login == Login){
+      if(response.data[key].password == Password){
         suc = true;
         setState(key, "isLogin", true)
-        isAdmin = response.data.key.isAdmin
+        isAdmin = response.data[key].isAdmin
+        signupModal.style.display = "none"
+        loginModal.style.display = "none"
+        loginButton.style.display = "none"
+        signupButton.style.display = "none"
+        back.style.display = "none"
+        logout.style.display = "flex"
         return
       }
       else{
