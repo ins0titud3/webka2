@@ -200,3 +200,14 @@ margin-left: 30px;
     background-color:#00294F;
     color:#F19100 ;
 }
+
+/*-------------------------
+ */
+#signupModal {
+    display: none;
+}
+
+.modal_header{
+    display: flex;
+    justify-content: end;
+}

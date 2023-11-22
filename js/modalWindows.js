@@ -89,6 +89,18 @@ function createModal(imageSrc, textContent, textSpace){
 
     document.body.appendChild(wrapper);
 }
+
+function openSignUpModal() {
+    document.getElementById('signupModal').style.display = 'block';
+}
+
+// Функция для закрытия модального окна "Sign Up"
+function closeSignUpModal() {
+    document.getElementById('signupModal').style.display = 'none';
+}
+
+// Добавляем слушатель события на кнопку "Sign Up"
+document.getElementById('signupButton').addEventListener('click', openSignUpModal);
 }
 )
 
