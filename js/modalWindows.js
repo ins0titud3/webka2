@@ -80,7 +80,7 @@ function createModal(imageSrc, textContent, textSpace){
 
     const buttonOk = document.createElement('button');
     buttonOk.className = 'modalOkButton';
-    buttonOk.innerText = 'OK';
+    buttonOk.innerText = 'X';
     buttonOk.addEventListener('click', () => {
         wrapper.remove()
     })
