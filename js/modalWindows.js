@@ -14,6 +14,7 @@ setTimeout(async() => {
         child.setAttribute('discription', data[key].discription)
         child.setAttribute('dataText',data[key].title)
         const childImg = document.createElement("img");
+        childImg.style = "height:405px"
         childImg.src = data[key].img
         childImg.className = "img-fluid"
 
@@ -54,24 +55,27 @@ function createModal(imageSrc, textContent, textSpace){
     wrapper.appendChild(modalContainer);
 
     const modalMain =document.createElement('div');
-    modalMain.className = 'modalMain'
+    modalMain.className = 'modalMain row container-fluid'
     modalContainer.appendChild(modalMain);
 
     const modalMainDiv =document.createElement('div');
-    modalMainDiv.className='first_content';
+    modalMainDiv.className='first_content col-md-4 d-flex flex-column';
+    modalMainDiv.style = "height: 405px"
     modalMain.appendChild(modalMainDiv);
 
     const imageElement = document.createElement('img');
     imageElement.src = imageSrc;
+    imageElement.className = "img-fluid"
     modalMainDiv.appendChild(imageElement);
 
     const textElement = document.createElement('p');
     textElement.innerText = textContent;
+    textElement.style = "position: relative"
     modalMainDiv.appendChild(textElement);
     //--------------------------------------------------------------
 
     const modalMainDiv2 = document.createElement('div');
-    modalMainDiv2.className = 'second_content';
+    modalMainDiv2.className = 'second_content col-md-8';
     modalMain.appendChild(modalMainDiv2);
 
     const textForm = document.createElement('p');
@@ -98,15 +102,11 @@ function openSignUpModal() {
 function closeSignUpModal() {
     document.getElementById('signupModal').style.display = 'none';
 }
-
-// Добавляем слушатель события на кнопку "Sign Up"
-document.getElementById('signupButton').addEventListener('click', openSignUpModal);
 }
 )
 
 
-
-{/* <a href="#" class="cards flex-shrink-1 text-decoration-none" id="finishedProj" data-image="./img/projects-pngs.png" data-text="Ramada plaza & Dar Tower" text="Ramada Plaza & Dar Tower: Ваша Оазис в Туристической Зоне
+/* <a href="#" class="cards flex-shrink-1 text-decoration-none" id="finishedProj" data-image="./img/projects-pngs.png" data-text="Ramada plaza & Dar Tower" text="Ramada Plaza & Dar Tower: Ваша Оазис в Туристической Зоне
 
 
 
@@ -172,4 +172,4 @@ Navi располагается в живописной и удобной лок
 В New Wave мы стремимся быть на переднем крае перемен. Наше название говорит само за себя - мы поддерживаем свежие идеи, новаторские проекты и смелые решения. Мы предлагаем платформу для тех, кто хочет изменить мир, начиная с собственных начинаний. Мы создаем сообщество, где люди с разными бакграундами и интересами могут обмениваться идеями и сотрудничать над проектами, которые могут изменить будущее. ">
                     <img src="./img/projects-pngs-1%20(7).png" class='img-fluid' alt="">
                     <h5 class="mt-3 text-primary-emphasis">New Wave</h5>
-                </a> */}
+                </a> */

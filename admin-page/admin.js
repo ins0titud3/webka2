@@ -168,14 +168,19 @@ modalPostCloseBtn.onclick = function() {
 const createPostApi = document.querySelector('#createPostApi');
 createPostApi.addEventListener('click', createPostFunc)
 
-async function createPostFunc(){
-    const title = document.querySelector('#title').value
+async function createPostFunc(e){
+    e.preventDefault();
+    const title = document.querySelector('#title').value    
     const desc = document.querySelector('#description').value
     const state = document.getElementById("status").value;
+    const img = document.getElementById("img").value
+    const currentDate = new Date();
     await axios.post("https://webprojass4-default-rtdb.firebaseio.com/posts.json", {
-        data: new Date,
+        data: currentDate.getDate() + "." + (currentDate.getMonth() + 1) + "." + currentDate.getFullYear(),
         discription: desc,
         title: title,
-        state: state
+        state: state,
+        img: img
     })
+    modalPost.style.display = "none";
 }
